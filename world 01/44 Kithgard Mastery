@@ -1,0 +1,32 @@
+# Reach the end of the maze using move commands.
+# Count how many gems you pick up, and then say the current count when near a fireball trap to disable it.
+# The raven at the start will give you a password. Say the password near a door to open it.
+# Defeat ogres when you get near them.
+# You can use a loop to repeat all of the instructions as needed.
+# If you beat this level, you can skip to the Forest World!
+count = 0
+while True:
+    hero.moveRight()
+    hero.moveUp()
+    hero.moveUp()
+    enemy = hero.findNearestEnemy()
+    if enemy:
+        hero.attack(enemy)
+        hero.attack(enemy)
+    hero.moveLeft()
+    hero.moveUp()
+    hero.moveUp()
+    hero.moveRight()
+    hero.moveRight()
+    hero.moveUp()
+    count = count + 1
+    hero.moveDown()
+    hero.moveRight()
+    hero.moveDown()
+    hero.moveDown()
+    hero.say(count)
+    hero.moveDown()
+    hero.moveDown()
+    hero.say("Sesame")
+    hero.moveRight()
+    hero.moveRight()

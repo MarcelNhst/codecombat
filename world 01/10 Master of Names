@@ -1,0 +1,7 @@
+# Your hero doesn't know these enemy's names!
+# The glasses give you the findNearestEnemy ability.
+
+while True:
+    enemy1 = hero.findNearestEnemy()
+    hero.attack(enemy1)
+    hero.attack(enemy1)

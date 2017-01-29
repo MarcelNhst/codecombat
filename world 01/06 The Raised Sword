@@ -1,0 +1,7 @@
+# Defeat the ogres.
+# Remember that they each take two hits.
+
+while True:
+    enemy = hero.findNearestEnemy()
+    hero.attack(enemy)
+    hero.attack(enemy)

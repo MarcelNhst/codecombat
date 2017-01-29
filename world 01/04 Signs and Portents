@@ -1,0 +1,15 @@
+# Your goal is to get to the right side of the map alive.
+# You don't need to fight the ogres, just move! Your allies will protect you.
+hero.moveRight()
+hero.moveRight()
+hero.moveUp()
+hero.moveRight()
+hero.moveRight()
+hero.moveRight()
+hero.moveDown()
+hero.moveRight()
+hero.moveDown()
+hero.moveRight()
+hero.moveRight()
+hero.moveRight()
+hero.moveRight()

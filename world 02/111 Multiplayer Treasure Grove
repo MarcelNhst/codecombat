@@ -1,0 +1,28 @@
+# This is a multiplayer mode where you will fight different coders.
+# With this algorithm you should be able to win some fights, depending on your armor and sword.
+# In this code a sword with the "power-up" ability is used. Change the code if you use a different one.
+
+# Be the first to 100 gold!
+# If you are defeated, you will respawn at 67% gold.
+
+while True:
+    #  Find coins and/or attack the enemy.
+    # Use flags and your special moves to win!
+    flag = hero.findFlag("green")
+    flagfight = hero.findFlag("black")
+    enemy = hero.findNearestEnemy()
+    item = hero.findNearestItem()
+    if flag:
+        hero.moveXY(flag.pos.x, flag.pos.y)
+        hero.pickUpFlag(flag)
+    elif flagfight:
+        if enemy:
+            if hero.isReady("power-up"):
+                hero.powerUp()
+            else:
+                hero.attack(enemy)
+        else:
+            hero.pickUpFlag(flagfight)
+    else:
+        if item:
+            hero.moveXY(item.pos.x, item.pos.y)

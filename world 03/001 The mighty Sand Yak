@@ -11,7 +11,7 @@ while True:
     
     # If the distanceTo the yak is less than 10:
     if hero.distanceTo(yak) < 10:
-        # To move right, add 10 to hero's x position.
+        # To move right, add 10 to hero's x position. Here you can use "x = x + 10" or the shorter version "x += 10"
         x += 10
         # Use moveXY(x, y) to move!
         hero.moveXY(x, y)

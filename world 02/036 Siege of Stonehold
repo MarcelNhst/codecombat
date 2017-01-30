@@ -1,0 +1,31 @@
+# The green flag is again used to just move to the healing spot.
+# The black one is used to attack and cleave enemies.
+# If there is no flag the hero will attack the next enemy he will see.
+
+# Help your friends beat the minions that Thoktar sends against you.
+# You'll need great equipment and strategy to win.
+# Flags might help, but it's up to you–be creative!
+# There is a doctor behind the fence. Move to the X to get healed
+
+
+while True:
+    
+    grflag = hero.findFlag("green")
+    blflag = hero.findFlag("black")
+    enemy = hero.findNearestEnemy()
+    
+    
+    if blflag:
+        hero.moveXY(blflag.pos.x, blflag.pos.y)
+        hero.pickUpFlag(blflag)
+        if hero.isReady("cleave"):
+            hero.cleave()
+            if enemy:
+                hero.attack(enemy)
+    elif grflag:
+        hero.moveXY(grflag.pos.x, grflag.pos.y)
+        hero.pickUpFlag(grflag)
+        hero.moveXY(19, 69)
+    else:
+        if enemy:
+            hero.attack(enemy)

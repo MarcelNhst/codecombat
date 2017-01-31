@@ -1,0 +1,33 @@
+# This is a second solution just for fun, just used some variables to show you can use them
+
+# Use "fire-trap"s to defeat the ogres.
+
+while True:
+    enemy = hero.findNearestEnemy()
+    x = hero.pos.x
+    y = hero.pos.y
+    if enemy:
+        xenemy = enemy.pos.x
+        yenemy = enemy.pos.y
+        # If the enemy is to the left of the hero:
+        if xenemy < x:
+            # buildXY a "fire-trap" on the left X.
+            hero.buildXY("fire-trap", 25, 34)
+            pass
+        # If the enemy is to the right of the hero:
+        elif xenemy > x:
+            # buildXY a "fire-trap" on the right X.
+            hero.buildXY("fire-trap", 55, 34)
+            pass
+        # If the enemy is below the hero:
+        elif yenemy < y:
+            # buildXY a "fire-trap" on the bottom X.
+            hero.buildXY("fire-trap", 40, 19)
+            pass
+        # If the enemy is above the hero:
+        elif yenemy > y:
+            # buildXY a "fire-trap" on the top X.
+            hero.buildXY("fire-trap", 40, 49)
+            pass
+    # Move back to the center.
+    hero.moveXY(40, 34)

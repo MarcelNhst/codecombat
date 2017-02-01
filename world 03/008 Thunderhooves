@@ -1,0 +1,22 @@
+# Move right, to the oasis.
+# Build a "fence" above or below when you see a yak.
+
+while True:
+    yak = hero.findNearestEnemy()
+    x = hero.pos.x
+    if yak:
+        yyak = yak.pos.y
+        # If yak.pos.y is greater than hero.pos.y
+        if yyak > hero.pos.y:
+            # buildXY a "fence" 10m below the yak.
+            hero.buildXY("fence", yak.pos.x, yyak - 10)
+        # else: 
+        else:
+            # buildXY a "fence" 10m above the yak.
+            hero.buildXY("fence", yak.pos.x, yyak + 10)
+        pass
+    else:
+        # moveXY right 10m towards the oasis.
+        x += 10
+        hero.moveXY(x, 31)
+        pass

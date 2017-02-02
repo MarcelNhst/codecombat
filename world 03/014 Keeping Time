@@ -1,1 +1,24 @@
-Test
+# I made the hero move to the middle because else he would not see enemies to attack until every other ally is dead. 
+# This kind of makes the hero a bait, which runs up and down when an enemy dies. This was not intended but worked great in praxis.
+
+# Use your new skill to choose what to do: hero.now()
+
+while True:
+    # If it's the first 10 seconds, attack.
+    if hero.now() < 10:
+        enemy = hero.findNearestEnemy()
+        if enemy:
+            hero.attack(enemy)
+        pass
+    # Else, if it's the first 35 seconds, collect coins.
+    elif hero.now() < 35:
+        item = hero.findNearestItem()
+        hero.moveXY(item.pos.x, item.pos.y)
+        pass
+    # After 35 seconds, attack again!
+    else:
+        hero.moveXY(42, 48)
+        enemy = hero.findNearestEnemy()
+        if enemy:
+            hero.attack(enemy)
+        pass

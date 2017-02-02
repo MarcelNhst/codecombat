@@ -1,0 +1,48 @@
+# I tried to implement a counter for the gold.collecting, but Naria checks your total gold count and not how much you intended to collect.
+# This resulted in a false check, because the hero accidently picked up some coins on his way to Naria after wave 1 and 2. 
+# So use the hero.gold variable, as I did here.
+
+# Fight enemies for 15 seconds.
+# Keep count whenever an enemy is defeated.
+defeated = 0
+while True:
+    enemy = hero.findNearestEnemy()
+    if enemy:
+        hero.attack(enemy)
+        if enemy.health <= 0:
+            defeated += 1
+    if hero.now() > 15:
+        break
+
+# Tell Naria how many enemies you defeated.
+hero.moveXY(59, 33)
+hero.say(defeated)
+
+goldcount = 0
+# Collect coins until the clock reaches 30 seconds.
+while True:
+    item = hero.findNearestItem()
+    if item:
+        hero.moveXY(item.pos.x, item.pos.y)
+    if hero.now() > 30:
+        break
+
+# Tell Naria how much gold you collected.
+hero.moveXY(59, 33)
+hero.say(hero.gold)
+
+# Fight enemies until the clock reaches 45 seconds.
+# Remember to reset the count of defeated enemies!
+defeated = 0
+while True:
+    enemy = hero.findNearestEnemy()
+    if enemy:
+        hero.attack(enemy)
+        if enemy.health <= 0:
+            defeated += 1
+    if hero.now() > 45:
+        break
+
+# Tell Naria how many enemies you defeated.
+hero.moveXY(59, 33)
+hero.say(defeated)

@@ -1,0 +1,16 @@
+# You will actually need a strong sword for that level. Just make shure you will defeat enough ogres before you will retreat.
+
+# Use a while to loop until you have counted 10 attacks.
+
+attacks = 0
+while attacks < 10:
+    # Attack the nearest enemy!
+    enemy = hero.findNearestEnemy()
+    if enemy:
+        hero.attack(enemy)
+    # Incrementing means to increase by 1.
+    # Increment the attacks variable.
+    attacks += 1
+
+# When you're done, retreat to the ambush point.
+hero.moveXY(79, 32) #∆ Don't just stand there blabbering!

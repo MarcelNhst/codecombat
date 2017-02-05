@@ -1,1 +1,25 @@
+# I needed to add an additonal move command for the pet, because the wizard would not hear the pet outside the camp.
+# Just make sure you add that as well.
 
+# Only your pet can wake the wizard up.
+
+def onHear(event):
+    # "hear" events set the event.speaker property.
+    # Check if the pet has heard the hero:
+    pet.moveXY(30, 33)
+    if event.speaker == hero:
+        pet.say("WOOF")
+
+# Assign the event handler for "hear" event.
+pet.on("hear", onHear)
+
+while True:
+    enemy = hero.findNearestEnemy()
+    # If there is an enemy:
+    if enemy:
+        # Use hero.say() to alert your pet
+        hero.say("Ogres!")
+        # Move to the X in the camp.
+        hero.moveXY(30, 33)
+        # Then return to the X outside the camp.
+        hero.moveXY(30, 15)

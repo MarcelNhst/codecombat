@@ -1,0 +1,23 @@
+# Such challanges are really good. You can reuse that function in a lot of other levels where you need the total health of a group!
+
+# Attack when your soldiers' total health is greater
+# than the ogres' total health
+
+# Write a function that takes an array of units as input
+# And returns the sum of all the units' health
+def getHealthOfUnits(units):
+    index = 0
+    totalHealth = 0
+    while index < len(units):
+        unit = units[index]
+        totalHealth += unit.health
+        index += 1
+    return totalHealth
+
+while True:
+    friends = hero.findFriends()
+    enemies = hero.findEnemies()
+    # Get the total health of your soldiers and the ogres.
+    # Say "Attack" when your side has more total health.
+    if getHealthOfUnits(friends) > getHealthOfUnits(enemies):
+        hero.say("Attack")

@@ -1,1 +1,20 @@
+# This level is really hard, I tried a lot of things. Just targeting your clone does not seem to work.
+# Also trying to hide behing the archers is not a good idea, they will go down to easily. 
+# I also tried different kinds of equipment due to your clone wearing the same. 
+# I bought the most expensive shield and equipped the worst sword I had with the idea of just hitting the clone with the shield.
+# He do not use special strategies like that, but even then I would lose.
+# So I tried playing defensive and just bash when I can. That worked, but it was very close as well.
+# The result: With just 6 lines of code you can win this!
 
+# You'll need good strategy to win this one!
+# Your clone will have the same equipment you have!
+# But, they're not very skilled at using special powers.
+
+#Finds the enemy with the most health and returns it
+
+self.moveXY(66,68)
+while True:
+    enemy = hero.findNearestEnemy()
+    hero.shield()
+    if hero.isReady("bash") and hero.distanceTo(enemy) < 3:
+        hero.bash(enemy)

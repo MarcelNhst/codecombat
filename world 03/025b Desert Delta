@@ -1,0 +1,9 @@
+# A more compact solution with a counter in a while loop
+
+# Only attack the enemies in the enemyNames array.
+# Be sure to attack in order! 0 -> 1 -> 2 -> 3
+enemyNames = ["Kog", "Godel", "Vorobun", "Rexxar"]
+i = 0
+while i <= 3:
+    hero.attack(enemyNames[i])
+    i += 1

@@ -1,0 +1,24 @@
+# This time I did not suceed by telling my pet to stay at the start before the wizard says Start.
+# You can see my attempt still in the code if you want to try for yourself, the pet is just to fast with crossing the start line.
+# So I remembered there is also the spawn event. I tried to implement an event handler for that and it worked! 
+
+# The pet must win the race.
+# Runners should touch their teams mark and run back.
+def stay(event):
+    pet.moveXY(6, 29)
+
+def onHear(event):
+    referee = pet.findNearestByType("wizard")
+    if event.message == "Stay":
+        pet.moveXY(6, 29)
+    # If the referee is speaker and the message is "Start":
+    if event.speaker == referee and event.message == "Start":
+        # Make the pet run to the red mark.
+        pet.moveXY(54, 27)
+        # Then run back.
+        pet.moveXY(7, 27)
+
+# Assign the onHear function to handle "hear" events.
+pet.on("hear", onHear)
+pet.on("spawn", stay)
+hero.say("Stay")

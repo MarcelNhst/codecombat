@@ -1,0 +1,20 @@
+# This code is very ineffective and will be replaced later on.
+# But it should you carry through the first wave.
+
+# Defend your towers in this replayable challenge level!
+# Step on an X if you have 20 gold to build a soldier.
+while True:
+    item = hero.findNearestItem()
+    enemies = hero.findEnemies()
+    if len(enemies) > 0:
+        enemy = hero.findNearestEnemy()
+        if enemy:
+            if hero.isReady("power-up"):
+                hero.powerUp()
+            hero.attack(enemy)
+    if hero.gold >= 20:
+        hero.moveXY(84, 51)
+    else:
+        item = hero.findNearestItem()
+        if item:
+            hero.moveXY(item.pos.x, item.pos.y)
